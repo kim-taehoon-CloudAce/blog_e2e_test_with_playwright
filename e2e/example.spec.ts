@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Homeペイジレンダリンテスト', async ({ page }) => {
+test('Homeページレンダリンテスト', async ({ page }) => {
   // Homeペイジにアクセス
   await page.goto('http://localhost:3000');
 
