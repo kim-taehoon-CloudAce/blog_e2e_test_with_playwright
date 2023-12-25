@@ -1,5 +1,13 @@
 import React from "react";
+import Header from "../../components/Header";
+import PostForm from "components/PostForm";
 
 export default function PostNew() {
-  return <div>PostNew</div>;
+  return (
+    <>
+      <Header />
+      <PostForm />
+    
+    </>
+  );
 }

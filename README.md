@@ -20,3 +20,7 @@ UI test with Playwright.\
 
 Open [https://playwright.dev/docs/intro](https://playwright.dev/docs/intro) to view it in the browser.
 
+## Libraries
+react-toastify
+react-router-dom
+

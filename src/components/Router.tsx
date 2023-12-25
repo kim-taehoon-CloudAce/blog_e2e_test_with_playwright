@@ -4,25 +4,39 @@ import PostList from "../pages/posts";
 import PostNew from "../pages/posts/new";
 import PostEdit from "../pages/posts/edit";
 import PostPage from "../pages/posts/detail";
-import Profile from "../pages/profile";
-import LoginPage from "../pages/login";
-import SignUp from "../pages/sinup";
 
-export default function Router() {
+import LoginPage from "../pages/login";
+import SignUp from "../pages/signup";
+import ProfilePage from "../pages/profile";
+import { useState } from "react";
+
+interface RouterProps {
+  isAuthenticated: boolean;
+}
+
+export default function Router({isAuthenticated}: RouterProps) {
+  ///const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  // move to App.tsx
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<PostList />} />
-        <Route path="/posts/:id" element={<PostPage />} />
-        <Route path="/posts/new" element={<PostNew />} />
-        <Route path="/posts/edit/:id" element={<PostEdit />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
-
-        <Route path="*" element={<Navigate replace to="/" />} />
+        {isAuthenticated ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/posts" element={<PostList />} />
+            <Route path="/posts/:id" element={<PostPage />} />
+            <Route path="/posts/new" element={<PostNew />} />
+            <Route path="/posts/edit/:id" element={<PostEdit />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="*" element={<Navigate replace to="/login" />} />
+          </>
+        )}
       </Routes>
     </>
   );

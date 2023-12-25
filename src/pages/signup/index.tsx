@@ -1,12 +1,15 @@
 import Header from "components/Header";
-import PostForm from "components/PostForm";
+import SiginupForm from "components/SignupForm";
+
+
+
 import React from "react";
 
-export default function PostEdit() {
+export default function SignUp() {
   return (
     <>
       <Header />
-      <PostForm />
+     <SiginupForm />
     </>
   );
 }
